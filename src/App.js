@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import LoginLayout from './components/layout/LoginLayout';
+import SignupLayout from './components/layout/SignupLayout';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ForgetPwdLayout from './components/layout/ForgetPwdLayout';
+import HomeLayout from './components/layout/HomeLayout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={LoginLayout} />
+        <Route path="/signup" exact component={SignupLayout} />
+        <Route path="/home" exact component={HomeLayout} />
+        <Route path="/forgotpwd" exact component={ForgetPwdLayout} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
